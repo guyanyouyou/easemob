@@ -1,0 +1,20 @@
+{
+    "name": "guyanyouyou/easemob-php-composer",
+    "description": "环信及时通讯包开发，用于环信用户、群、聊天室等功能",
+    "require": {
+        "php": ">=5.6.0",
+        "lib-curl": "*"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "孤雁幽幽",
+            "email": "guyanyouyou@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "guyanyouyou\\": "src/"
+        }
+    }
+}
