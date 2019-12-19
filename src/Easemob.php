@@ -366,9 +366,15 @@ class Easemob
     /**
      * 返回token
      *
+     *
      * @return mixed
      */
-    public function getToken()
+    /**
+     * 返回token
+     * @param  boolean $only_token [true 只返回access_token false 返回json串]
+     * @return @return mixed
+     */
+    public function getToken($only_token = true)
     {
         //如果已经传入外部缓存的access_token则不去请求新的
         if (!empty($this->access_token)) {
@@ -381,7 +387,11 @@ class Easemob
             'client_secret' => $this->client_secret,
         ];
         $return = Http::postCurl($url, $option);
-        return $return['access_token'];
+        if ($only_token) {
+            return $return['access_token'];
+        }else{
+            return $return;
+        }
 
 
     }
@@ -399,6 +409,20 @@ class Easemob
         $string = str_replace(' ', '+', $string);
 
         return $string;
+    }
+
+
+    /**
+     * 重新设置初数化参数
+     * @param [type] $key   [需要设置的参数key名]
+     * @param [type] $value [需要设置的参数值]
+     */
+    public function setConfig($key,$value){
+        if(property_exists($this,$key)){
+            $this->$key = $value;
+            return true;
+        }
+        return false;
     }
 
 }

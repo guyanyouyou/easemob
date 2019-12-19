@@ -7,7 +7,7 @@
 去除了laravel框架相关的配置、缓存等，配置参数在实例化时通过外部传入，asscee_token通过方法调用，在库包外根据条件进行缓存，使本类包单纯实现环信接口，适用更多使用环境
 ## 安装
 
-`composer require guyanyouyou/easemob`
+`composer require guyanyouyou/easemob-php-composer`
 
 ## 使用
 - - -

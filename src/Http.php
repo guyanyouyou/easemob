@@ -3,7 +3,7 @@
  * @Author: anchen
  * @Date:   2019-12-17 23:37:17
  * @Last Modified by:   孤雁幽幽
- * @Last Modified time: 2019-12-18 22:35:28
+ * @Last Modified time: 2019-12-19 23:45:04
  */
 namespace guyanyouyou;
 
@@ -51,8 +51,10 @@ class Http{
             Cache::pull(Easemob::CACHE_NAME);
         }*/
 
-        if($status !== 200){
+       /* if($status !== 200){
+            var_dump('进来了');
             $return_array = json_decode($result,true);
+            var_dump($return_array);
             if($return_array){
                 $error_message = '请求错误:' ;
                 if(isset($return_array['error']))
@@ -63,11 +65,12 @@ class Http{
                 $error_message = '请求错误!' ;
             }
             throw new EasemobError($error_message,$status);
-        }
+        }*/
 
         // 在下载文件的时候 不是json
         if($is_json){
             $result_array = json_decode($result,true);
+            $result_array['http_status'] = $status;
         }else{
             $result_array = $result;
         }
@@ -116,7 +119,7 @@ class Http{
             Cache::pull(Easemob::CACHE_NAME);
         }*/
 
-        if($status !== 200){
+/*        if($status !== 200){
             $return_array = json_decode($result,true);
             if($return_array){
                 $error_message = '请求错误:' ;
@@ -128,11 +131,12 @@ class Http{
                 $error_message = '请求错误!' ;
             }
             throw new EasemobError($error_message,$status);
-        }
+        }*/
 
         // 在下载文件的时候 不是json
         if($is_json){
             $result_array = json_decode($result,true);
+            $result_array['http_status'] = $status;
         }else{
             $result_array = $result;
         }
