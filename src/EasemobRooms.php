@@ -89,7 +89,7 @@ trait EasemobRooms
      */
     public function roomEdit($room_id, $room_name = "", $room_description = "", $max_user = 0)
     {
-        $url    = $this->url.'chatgroups/'.$room_id;
+        $url    = $this->url.'chatrooms/'.$room_id;
         $option = [
             "name"        => self::stringReplace($room_name),
             "description" => self::stringReplace($room_description),
